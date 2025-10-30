@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { AnimatePresence, motion, type Easing } from "framer-motion";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { navLinks } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -18,6 +18,8 @@ const mobileMenuVariants = {
 const hashSectionIds = navLinks
   .filter((link) => link.href.startsWith("/#"))
   .map((link) => link.href.slice(2));
+
+const menuEase: Easing = [0.16, 1, 0.3, 1];
 
 export function Header() {
   const pathname = usePathname();
@@ -153,7 +155,7 @@ export function Header() {
             animate="visible"
             exit="exit"
             variants={mobileMenuVariants}
-            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.18, ease: menuEase }}
             className="border-t border-border/60 bg-background/95 px-4 py-3 backdrop-blur md:hidden"
           >
             <div className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">

@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Easing } from "framer-motion";
 import { MoonIcon, SunIcon } from "@heroicons/react/24/outline";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +10,8 @@ const iconVariants = {
   animate: { opacity: 1, scale: 1, rotate: 0 },
   exit: { opacity: 0, scale: 0.7, rotate: 30 },
 };
+
+const toggleEase: Easing = [0.16, 1, 0.3, 1];
 
 export function ThemeToggle({ className }: { className?: string }) {
   const { theme, resolvedTheme, setTheme } = useTheme();
@@ -35,7 +37,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           initial="initial"
           animate="animate"
           exit="exit"
-          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.25, ease: toggleEase }}
           className="absolute inset-0 flex items-center justify-center"
         >
           {isDark ? (

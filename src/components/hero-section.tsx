@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Easing } from "framer-motion";
 import { ArrowRightIcon, SparklesIcon } from "@heroicons/react/24/outline";
+
+const gradientEase: Easing = [0.45, 0, 0.55, 1];
 
 const gradientVariants = {
   animate: {
@@ -10,7 +12,7 @@ const gradientVariants = {
     transition: {
       repeat: Infinity,
       duration: 18,
-      ease: [0.45, 0, 0.55, 1],
+      ease: gradientEase,
     },
   },
 };
@@ -21,7 +23,7 @@ const dotVariants = {
     transition: {
       repeat: Infinity,
       duration: 12,
-      ease: [0.45, 0, 0.55, 1],
+      ease: gradientEase,
     },
   },
 };

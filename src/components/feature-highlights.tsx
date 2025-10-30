@@ -3,13 +3,15 @@
 import { featureHighlights } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { BoltIcon, EyeIcon, GlobeAltIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
+import { motion, type Easing, type Variants } from "framer-motion";
 
 const iconMap = {
   "globe-alt": GlobeAltIcon,
   bolt: BoltIcon,
   eye: EyeIcon,
 } as const;
+
+const cardEase: Easing = [0.16, 1, 0.3, 1];
 
 const cardVariants = {
   initial: { opacity: 0, y: 25 },
@@ -19,10 +21,10 @@ const cardVariants = {
     transition: {
       delay: index * 0.1,
       duration: 0.4,
-      ease: [0.16, 1, 0.3, 1],
+      ease: cardEase,
     },
   }),
-};
+} satisfies Variants;
 
 export function FeatureHighlights() {
   return (

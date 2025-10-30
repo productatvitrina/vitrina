@@ -1,8 +1,10 @@
 "use client";
 
 import { Fragment } from "react";
-import { motion } from "framer-motion";
+import { motion, type Easing, type Variants } from "framer-motion";
 import { journeyStages } from "@/lib/data";
+
+const journeyEase: Easing = [0.16, 1, 0.3, 1];
 
 const cardVariants = {
   initial: { opacity: 0, y: 20 },
@@ -12,10 +14,10 @@ const cardVariants = {
     transition: {
       delay: index * 0.08,
       duration: 0.35,
-      ease: [0.16, 1, 0.3, 1],
+      ease: journeyEase,
     },
   }),
-};
+} satisfies Variants;
 
 export function JourneySection() {
   return (
