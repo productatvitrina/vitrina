@@ -35,7 +35,7 @@ export function ThemeToggle({ className }: { className?: string }) {
           initial="initial"
           animate="animate"
           exit="exit"
-          transition={{ duration: 0.25, ease: "easeOut" }}
+          transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           className="absolute inset-0 flex items-center justify-center"
         >
           {isDark ? (

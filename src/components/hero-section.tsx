@@ -10,7 +10,7 @@ const gradientVariants = {
     transition: {
       repeat: Infinity,
       duration: 18,
-      ease: "easeInOut",
+      ease: [0.45, 0, 0.55, 1],
     },
   },
 };
@@ -21,7 +21,7 @@ const dotVariants = {
     transition: {
       repeat: Infinity,
       duration: 12,
-      ease: "easeInOut",
+      ease: [0.45, 0, 0.55, 1],
     },
   },
 };
@@ -97,7 +97,7 @@ export function HeroSection() {
         <div className="relative">
           <motion.div
             animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 16, ease: "linear" }}
+            transition={{ repeat: Infinity, duration: 16, ease: "linear" as const }}
             className="absolute inset-0 -translate-x-6 translate-y-6 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-600/20 to-fuchsia-500/20 blur-2xl lg:blur-3xl"
           />
           <div className="relative flex h-full items-center justify-center rounded-3xl border border-border/60 bg-background/80 p-6 shadow-lg backdrop-blur">

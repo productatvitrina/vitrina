@@ -153,7 +153,7 @@ export function Header() {
             animate="visible"
             exit="exit"
             variants={mobileMenuVariants}
-            transition={{ duration: 0.18, ease: "easeOut" }}
+            transition={{ duration: 0.18, ease: [0.16, 1, 0.3, 1] }}
             className="border-t border-border/60 bg-background/95 px-4 py-3 backdrop-blur md:hidden"
           >
             <div className="flex flex-col space-y-2 text-sm font-medium text-muted-foreground">
